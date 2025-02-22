@@ -1,0 +1,29 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ] # or master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Pages
+        uses: actions/configure-pages@v3
+      - name: Build your site  # Replace with your build command if needed
+        run: |
+          # If you have a static site generator (Jekyll, Hugo, etc.)
+          # run your build command here. For example:
+          # jekyll build
+          # hugo
+          echo "Building site" # Replace with your build steps.
+          mkdir .github/workflows/public
+          echo "Hello World" > .github/workflows/public/index.html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: .github/workflows/public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
