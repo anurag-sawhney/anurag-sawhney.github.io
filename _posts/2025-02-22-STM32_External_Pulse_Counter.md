@@ -15,3 +15,4 @@ Auto-reload preload: Disable
 Slave Mode Controller: ETR mode 1  
 IC Selection: TRC  
 
+
